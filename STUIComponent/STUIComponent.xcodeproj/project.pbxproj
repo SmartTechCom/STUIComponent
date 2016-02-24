@@ -10,6 +10,7 @@
 		074B15E31C7D99D400F51301 /* STUIComponent.h in Headers */ = {isa = PBXBuildFile; fileRef = 074B15E21C7D99D400F51301 /* STUIComponent.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		074B15EA1C7D99D400F51301 /* STUIComponent.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 074B15DF1C7D99D400F51301 /* STUIComponent.framework */; };
 		074B15EF1C7D99D400F51301 /* STUIComponentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074B15EE1C7D99D400F51301 /* STUIComponentTests.swift */; };
+		B51867A61C7E18C90052BB1A /* LoopPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B51867A51C7E18C90052BB1A /* LoopPage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +30,7 @@
 		074B15E91C7D99D400F51301 /* STUIComponentTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = STUIComponentTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		074B15EE1C7D99D400F51301 /* STUIComponentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STUIComponentTests.swift; sourceTree = "<group>"; };
 		074B15F01C7D99D400F51301 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B51867A51C7E18C90052BB1A /* LoopPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoopPage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 		074B15E11C7D99D400F51301 /* STUIComponent */ = {
 			isa = PBXGroup;
 			children = (
+				B51867A41C7E18BB0052BB1A /* LoopPage */,
 				074B15E21C7D99D400F51301 /* STUIComponent.h */,
 				074B15E41C7D99D400F51301 /* Info.plist */,
 			);
@@ -84,6 +87,14 @@
 				074B15F01C7D99D400F51301 /* Info.plist */,
 			);
 			path = STUIComponentTests;
+			sourceTree = "<group>";
+		};
+		B51867A41C7E18BB0052BB1A /* LoopPage */ = {
+			isa = PBXGroup;
+			children = (
+				B51867A51C7E18C90052BB1A /* LoopPage.swift */,
+			);
+			path = LoopPage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -194,6 +205,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B51867A61C7E18C90052BB1A /* LoopPage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,6 +320,7 @@
 		074B15F41C7D99D400F51301 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -318,12 +331,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.st.STUIComponent;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		074B15F51C7D99D400F51301 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -376,6 +391,7 @@
 				074B15F51C7D99D400F51301 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		074B15F61C7D99D400F51301 /* Build configuration list for PBXNativeTarget "STUIComponentTests" */ = {
 			isa = XCConfigurationList;
@@ -384,6 +400,7 @@
 				074B15F81C7D99D400F51301 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
