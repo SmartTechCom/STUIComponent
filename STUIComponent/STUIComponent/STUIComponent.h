@@ -2,7 +2,7 @@
 //  STUIComponent.h
 //  STUIComponent
 //
-//  Created by kenneth wang on 16/2/23.
+//  Created by kenneth wang on 16/2/24.
 //  Copyright © 2016年 st company. All rights reserved.
 //
 
@@ -16,6 +16,4 @@ FOUNDATION_EXPORT const unsigned char STUIComponentVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <STUIComponent/PublicHeader.h>
 
-#import "STButtonItem.h"
-#import "UIAlertView+STBlocks.h"
-#import "UIActionSheet+STBlocks.h"
+

@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "074B14ED1C7C6CD900F51301"
+               BlueprintIdentifier = "074B15DE1C7D99D400F51301"
                BuildableName = "STUIComponent.framework"
                BlueprintName = "STUIComponent"
                ReferencedContainer = "container:STUIComponent.xcodeproj">
@@ -32,7 +32,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "074B14F71C7C6CD900F51301"
+               BlueprintIdentifier = "074B15E81C7D99D400F51301"
                BuildableName = "STUIComponentTests.xctest"
                BlueprintName = "STUIComponentTests"
                ReferencedContainer = "container:STUIComponent.xcodeproj">
@@ -42,7 +42,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "074B14ED1C7C6CD900F51301"
+            BlueprintIdentifier = "074B15DE1C7D99D400F51301"
             BuildableName = "STUIComponent.framework"
             BlueprintName = "STUIComponent"
             ReferencedContainer = "container:STUIComponent.xcodeproj">
@@ -64,7 +64,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "074B14ED1C7C6CD900F51301"
+            BlueprintIdentifier = "074B15DE1C7D99D400F51301"
             BuildableName = "STUIComponent.framework"
             BlueprintName = "STUIComponent"
             ReferencedContainer = "container:STUIComponent.xcodeproj">
@@ -82,7 +82,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "074B14ED1C7C6CD900F51301"
+            BlueprintIdentifier = "074B15DE1C7D99D400F51301"
             BuildableName = "STUIComponent.framework"
             BlueprintName = "STUIComponent"
             ReferencedContainer = "container:STUIComponent.xcodeproj">
