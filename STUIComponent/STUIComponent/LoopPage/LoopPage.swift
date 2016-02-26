@@ -77,7 +77,7 @@ public class LoopPage: UIView {
     override public func didMoveToSuperview() {
         super.didMoveToSuperview()
         setupBasic()
-        timer.fire()
+        NSRunLoop.currentRunLoop().addTimer(timer, forMode: NSDefaultRunLoopMode)
     }
     
     // MARK: - Private
@@ -96,6 +96,7 @@ public class LoopPage: UIView {
         collectionView?.showsVerticalScrollIndicator = false
         collectionView?.showsHorizontalScrollIndicator = false
         collectionView?.pagingEnabled = true
+        collectionView?.bounces = false
         addSubview(collectionView!)
         
         pageCtl.frame = CGRect(x: 0, y: 0, width: 100, height: 20)
@@ -111,13 +112,17 @@ public class LoopPage: UIView {
         addSubview(pageCtl)
     }
     
-    //MAEK: - Target
+    //MARK: - Timer
+
+    
+    //MARK: - Target
     private var realIndex = 0
     private var index : Int {
         get {
             return realIndex++
         }
     }
+    
     @objc private func timerStart() {
         let num = index
         collectionView?.scrollToItemAtIndexPath(NSIndexPath(forItem: num, inSection: 0), atScrollPosition: UICollectionViewScrollPosition.Left, animated: true)
@@ -132,7 +137,7 @@ public class LoopPage: UIView {
     }()
     
     private lazy var timer : NSTimer = {
-        let loopTimer = NSTimer.scheduledTimerWithTimeInterval(1000, target: self, selector: Selector("timerStart"), userInfo: nil, repeats: true)
+        let loopTimer = NSTimer.scheduledTimerWithTimeInterval(3, target: self, selector: Selector("timerStart"), userInfo: nil, repeats: true)
         return loopTimer
     }()
 }
@@ -169,6 +174,15 @@ extension LoopPage : UICollectionViewDataSource, UICollectionViewDelegate {
         if pageTapActionClosure != nil {
             pageTapActionClosure!(pageIndex: indexPath.item % pageCount)
         }
+    }
+    
+    public func scrollViewWillBeginDragging(scrollView: UIScrollView) {
+        if let visIndexPath = collectionView?.indexPathsForVisibleItems().first {
+            if visIndexPath.item == 0 {
+                collectionView?.scrollToItemAtIndexPath(NSIndexPath(forItem: realPageCount / 2, inSection: 0), atScrollPosition: UICollectionViewScrollPosition.Left, animated: false)
+            }
+        }
+        
     }
 }
 
