@@ -12,7 +12,6 @@ public typealias LoopPageTapActionClosure = (pageIndex : Int) -> Void
 
 public class LoopPage: UIView {
 
-    public var defaultImage : UIImage!  // default is nil (UIView && backgroundColor = whiteColor)
     public var timeInterval : NSTimeInterval!  //   default is 0 -> 不自动轮播
     
     private var collectionView : UICollectionView?
@@ -61,17 +60,29 @@ public class LoopPage: UIView {
             view.backgroundColor = UIColor.whiteColor()
             return view
         }
-        defaultImage = nil
         timeInterval = 0
         super.init(frame: frame)
+        
     }
 
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    convenience public init(frame: CGRect, countClosur: LoopPageCountClosure, pageClosure: LoopPageCurrentViewClosure, actionClosure: LoopPageTapActionClosure) {
+    /**
+     快速生成LoopPage
+     
+     - parameter frame:         frame
+     - parameter timeInter:     自动轮播时长，为0时表示不自动轮播
+     - parameter countClosur:   返回page数
+     - parameter pageClosure:   当前page
+     - parameter actionClosure: page点击事件
+     
+     - returns: LoopPage
+     */
+    convenience public init(frame: CGRect, timeInter: NSTimeInterval, countClosur: LoopPageCountClosure, pageClosure: LoopPageCurrentViewClosure, actionClosure: LoopPageTapActionClosure) {
         self.init(frame: frame)
+        timeInterval = timeInter
         pageCountClosure = countClosur
         pageCurrentClosure = pageClosure
         pageTapActionClosure = actionClosure
@@ -93,13 +104,14 @@ public class LoopPage: UIView {
         layout.minimumInteritemSpacing = 0
         //  设定collectionView
         collectionView = UICollectionView(frame: frame, collectionViewLayout: layout)
-        collectionView?.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: "loopCell")
+        collectionView!.backgroundColor = UIColor.whiteColor()
+        collectionView!.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: "loopCell")
         collectionView!.dataSource = self
         collectionView!.delegate = self
-        collectionView?.showsVerticalScrollIndicator = false
-        collectionView?.showsHorizontalScrollIndicator = false
-        collectionView?.pagingEnabled = true
-        collectionView?.bounces = false
+        collectionView!.showsVerticalScrollIndicator = false
+        collectionView!.showsHorizontalScrollIndicator = false
+        collectionView!.pagingEnabled = true
+        collectionView!.bounces = false
         addSubview(collectionView!)
         //  设定pageCtl
         pageCtl.frame = CGRect(x: 0, y: 0, width: 100, height: 20)
@@ -147,7 +159,6 @@ public class LoopPage: UIView {
     //KARK: - Lazy
     private lazy var pageCtl : UIPageControl = {
         let pageCtl = UIPageControl()
-        pageCtl.backgroundColor = UIColor.redColor()
         return pageCtl
     }()
 }
@@ -159,7 +170,6 @@ extension LoopPage : UICollectionViewDataSource, UICollectionViewDelegate {
     
     public func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let page = collectionView.dequeueReusableCellWithReuseIdentifier("loopCell", forIndexPath: indexPath)
-        page.backgroundColor = UIColor.randomColor()
         let realIndex = indexPath.item % pageCount
         let currentView = pageCurrentClosure!(pageIndex: realIndex)
         currentView.frame = page.bounds
