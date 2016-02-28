@@ -19,6 +19,7 @@ public class LoopPage: UIView {
     private var pageCountClosure : LoopPageCountClosure?
     private var pageCurrentClosure : LoopPageCurrentViewClosure?
     private var pageTapActionClosure : LoopPageTapActionClosure?
+    private var timer : NSTimer?
     
     private var pageCount : Int {
         get {
@@ -48,8 +49,10 @@ public class LoopPage: UIView {
             return 5000 * pageCount
         }
     }
-
-    override public init(frame: CGRect) {
+    
+    
+    //MARK: - init
+    override private init(frame: CGRect) {
         pageCountClosure = {() -> Int in
             return 1
         }
@@ -74,21 +77,21 @@ public class LoopPage: UIView {
         pageTapActionClosure = actionClosure
     }
     
+    //MARK: - LifeCircle
     override public func didMoveToSuperview() {
         super.didMoveToSuperview()
         setupBasic()
-        NSRunLoop.currentRunLoop().addTimer(timer, forMode: NSDefaultRunLoopMode)
     }
     
     // MARK: - Private
     private func setupBasic() {
-        // MARK: - 初始化collection
+        //  设定layout
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: frame.width, height: frame.height)
         layout.scrollDirection = UICollectionViewScrollDirection.Horizontal
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 0
-        
+        //  设定collectionView
         collectionView = UICollectionView(frame: frame, collectionViewLayout: layout)
         collectionView?.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: "loopCell")
         collectionView!.dataSource = self
@@ -98,7 +101,7 @@ public class LoopPage: UIView {
         collectionView?.pagingEnabled = true
         collectionView?.bounces = false
         addSubview(collectionView!)
-        
+        //  设定pageCtl
         pageCtl.frame = CGRect(x: 0, y: 0, width: 100, height: 20)
         pageCtl.center.x = center.x
         pageCtl.frame.origin.y = frame.height - pageCtl.frame.height
@@ -110,10 +113,22 @@ public class LoopPage: UIView {
             pageCtl.hidden = true
         }
         addSubview(pageCtl)
+        
+        //  处理时间
+        removeTimer()
+        
+        if pageCount > 1 { addTimer() }
     }
     
     //MARK: - Timer
-
+    private func addTimer() -> Void {
+        timer = NSTimer.scheduledTimerWithTimeInterval(privateTimeInterval, target: self, selector: Selector("timerStart"), userInfo: nil, repeats: true)
+        NSRunLoop.currentRunLoop().addTimer(timer!, forMode: NSRunLoopCommonModes)
+    }
+    private func removeTimer() -> Void {
+        timer?.invalidate()
+        timer = nil
+    }
     
     //MARK: - Target
     private var realIndex = 0
@@ -134,11 +149,6 @@ public class LoopPage: UIView {
         let pageCtl = UIPageControl()
         pageCtl.backgroundColor = UIColor.redColor()
         return pageCtl
-    }()
-    
-    private lazy var timer : NSTimer = {
-        let loopTimer = NSTimer.scheduledTimerWithTimeInterval(3, target: self, selector: Selector("timerStart"), userInfo: nil, repeats: true)
-        return loopTimer
     }()
 }
 
@@ -164,8 +174,8 @@ extension LoopPage : UICollectionViewDataSource, UICollectionViewDelegate {
     public func collectionView(collectionView: UICollectionView, didEndDisplayingCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
         
         let currentPageIndex = collectionView.indexPathsForVisibleItems().first
-        print(currentPageIndex)
         if let currentPageNum = currentPageIndex?.item {
+            realIndex = currentPageIndex!.item
             pageCtl.currentPage = currentPageNum % pageCount
         }
     }
@@ -177,12 +187,21 @@ extension LoopPage : UICollectionViewDataSource, UICollectionViewDelegate {
     }
     
     public func scrollViewWillBeginDragging(scrollView: UIScrollView) {
-        if let visIndexPath = collectionView?.indexPathsForVisibleItems().first {
-            if visIndexPath.item == 0 {
-                collectionView?.scrollToItemAtIndexPath(NSIndexPath(forItem: realPageCount / 2, inSection: 0), atScrollPosition: UICollectionViewScrollPosition.Left, animated: false)
-            }
+        if pageCount == 1 {
+            collectionView?.contentSize = CGSizeZero
         }
-        
+        else {
+            if let visIndexPath = collectionView?.indexPathsForVisibleItems().first {
+                if visIndexPath.item == 0 {
+                    collectionView?.scrollToItemAtIndexPath(NSIndexPath(forItem: realPageCount / 2, inSection: 0), atScrollPosition: UICollectionViewScrollPosition.Left, animated: false)
+                }
+            }
+            removeTimer()
+        }
+    }
+    
+    public func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+        addTimer()
     }
 }
 
