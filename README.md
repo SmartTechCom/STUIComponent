@@ -59,7 +59,7 @@ From：Azen.Xu
 ```
 From:Azen.Xu
 
-###LoopPage(v0.0.4)
+###SliderButtonView(v0.0.4)
 1. 作用：分页控件
 2. 用法：
   - 使用```init(titleArray:NSMutableArray, width:NSInteger)```的便捷构造方法创造Slider对象，并```stupe()```初始化
