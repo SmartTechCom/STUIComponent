@@ -1,14 +1,14 @@
 # STUIComponent
 Foundation project for quick develop
 
-## Component catalogue
+## Component catalogue（目录）
 
 - LoopPage
 - test2
 - test3
 
 
-## Component Usage
+## Component Usage（用法）
 ```
 Wiki填写模板
 ## 名称(v最新版本号) 
