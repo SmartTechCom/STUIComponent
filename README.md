@@ -4,16 +4,19 @@ Foundation project for quick develop
 ## Component catalogue（目录）
 
 - LoopPage
-- test2
+- LineSpacingLabel
 - test3
 
 
 ## Component Usage（用法）
 ```
 Wiki填写模板
-## 名称(v最新版本号) 
+### 名称(v最新版本号) 
 1. 作用
 2. 用法
+  - 
+  - 
+  - 
 3. 使用代码举例
 (4. 其他)
 From:维护人
@@ -44,3 +47,14 @@ lazy var loopPage : LoopPage = {
     }()
 ```
 From：Azen.Xu
+
+### LineSpacingLabel(v0.0.3) 
+1. 作用：带行间距的Label
+2. 用法
+  - 直接在XIB上更改Label控件的类名为LineSpacingLabel即可
+  - 通过"lineSpacing"属性设置行距，默认为5
+3. 使用代码举例
+```Swift
+@IBOutlet weak var testLabel: LineSpacingLabel!
+```
+From:Azen.Xu
