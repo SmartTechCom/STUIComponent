@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:STUIComponentDemo/STCEditProject.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "container:STUIComponent.xcodeproj">
    </FileRef>
 </Workspace>

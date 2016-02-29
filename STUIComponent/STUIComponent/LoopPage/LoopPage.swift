@@ -189,6 +189,7 @@ extension LoopPage : UICollectionViewDataSource, UICollectionViewDelegate {
             pageCtl.currentPage = currentPageNum % pageCount
         }
     }
+
     
     public func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         if pageTapActionClosure != nil {
