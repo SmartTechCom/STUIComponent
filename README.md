@@ -58,3 +58,23 @@ From：Azen.Xu
 @IBOutlet weak var testLabel: LineSpacingLabel!
 ```
 From:Azen.Xu
+
+###LoopPage(v0.0.4)
+1. 作用：分页控件
+2. 用法：
+  - 使用```init(titleArray:NSMutableArray, width:NSInteger)```的便捷构造方法创造Slider对象
+  - 通过delegate设置代理
+  - 代理方法```sliderButtonView(slider:SliderButtonView, index:NSInteger)```
+3. 使用代码举例：
+```Swift
+      let slider:SliderButtonView = SliderButtonView(titleArray: ["111", "222"], width: 320)
+      slider.setup()
+      slider.delegate = self
+      self.view.addSubview(slider)
+    
+    delegate方法
+    func sliderButtonView(slider: SliderButtonView, index: NSInteger) {
+        print("\(index)")
+    }
+```
+From：JiangYunFeng
