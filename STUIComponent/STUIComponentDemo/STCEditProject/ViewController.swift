@@ -12,6 +12,7 @@ import STUIComponent
 class ViewController: UIViewController {
 
     @IBOutlet weak var headerView: UIView!
+    @IBOutlet weak var testLabel: LineSpacingLabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,12 +30,14 @@ class ViewController: UIViewController {
     func setupBasic() {
         loopPage.frame = headerView.bounds
         headerView.addSubview(loopPage)
+        testLabel.lineSpacing = 3
+//        testLabel.text = "哈2"
     }
     
     // MARK: - Lazy
     lazy var loopPage : LoopPage = {
         
-        let page = LoopPage(frame: CGRect(x: 0,y: 0,width: 375,height: 100), timeInter: 1, countClosur: { () -> Int in
+        let page = LoopPage(frame: CGRect(x: 0,y: 0,width: 375,height: 100), timeInter: 0, countClosur: { () -> Int in
             return 5
             }, pageClosure: { (pageIndex) -> UIView in
                 let label = UILabel(frame: CGRect(x: 0, y: 0, width: 50, height: 50))

@@ -215,14 +215,3 @@ extension LoopPage : UICollectionViewDataSource, UICollectionViewDelegate {
         addTimer()
     }
 }
-
-
-//TODO: - 添加进Categray中
-extension UIColor {
-    class func randomColor() -> UIColor {
-        return UIColor(red: CGFloat(Double(arc4random_uniform(100)) * 0.01), green: CGFloat(Double(arc4random_uniform(100)) * 0.01), blue: CGFloat(Double(arc4random_uniform(100)) * 0.01), alpha: 1)
-    }
-}
-
-
-

@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -24,16 +25,27 @@
                                     <constraint firstAttribute="height" constant="180" id="tft-sk-AS2"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hI4-V2-o8a" customClass="LineSpacingLabel" customModule="STUIComponent">
+                                <rect key="frame" x="20" y="188" width="560" height="143"/>
+                                <string key="text">哈哈哈哈笑哈哈哈哈哈哈笑哈哈哈哈哈哈笑哈哈哈哈哈哈笑哈哈哈哈哈哈笑哈哈哈哈哈哈笑哈哈哈哈哈哈笑哈哈哈哈哈哈笑哈哈哈哈哈哈笑哈哈哈哈哈哈笑哈哈哈哈哈哈笑哈哈哈哈哈哈笑哈哈哈哈哈哈笑哈哈哈哈哈哈笑哈哈哈哈哈哈笑哈哈哈哈哈哈笑哈哈哈哈哈哈笑哈哈哈哈哈哈笑哈哈哈哈哈哈笑哈哈哈哈哈哈笑哈哈哈哈哈哈笑哈哈哈哈哈哈笑哈哈哈哈哈哈笑哈哈哈哈哈哈笑哈哈哈哈哈哈笑哈哈哈哈哈哈笑哈哈哈哈哈哈笑哈哈哈哈哈哈笑哈哈</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="hI4-V2-o8a" firstAttribute="top" secondItem="qCa-mg-7z1" secondAttribute="bottom" constant="8" id="0ki-Yr-e3C"/>
+                            <constraint firstItem="hI4-V2-o8a" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Ata-JD-wrP"/>
                             <constraint firstItem="qCa-mg-7z1" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="LqI-kk-0D1"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="hI4-V2-o8a" secondAttribute="trailing" id="smN-uR-Kiz"/>
                             <constraint firstItem="qCa-mg-7z1" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="tU8-ha-q0A"/>
                             <constraint firstAttribute="trailing" secondItem="qCa-mg-7z1" secondAttribute="trailing" id="x6R-2k-xhs"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="headerView" destination="qCa-mg-7z1" id="doo-U4-c9D"/>
+                        <outlet property="testLabel" destination="hI4-V2-o8a" id="JyC-kg-Qy5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
