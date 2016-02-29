@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		01F361761C844E1C0031EF50 /* SliderButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F361751C844E1C0031EF50 /* SliderButtonView.swift */; };
 		074B15E31C7D99D400F51301 /* STUIComponent.h in Headers */ = {isa = PBXBuildFile; fileRef = 074B15E21C7D99D400F51301 /* STUIComponent.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		074B15EA1C7D99D400F51301 /* STUIComponent.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 074B15DF1C7D99D400F51301 /* STUIComponent.framework */; };
 		074B15EF1C7D99D400F51301 /* STUIComponentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074B15EE1C7D99D400F51301 /* STUIComponentTests.swift */; };
@@ -26,6 +27,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		01F361751C844E1C0031EF50 /* SliderButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SliderButtonView.swift; sourceTree = "<group>"; };
 		074B15DF1C7D99D400F51301 /* STUIComponent.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = STUIComponent.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		074B15E21C7D99D400F51301 /* STUIComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = STUIComponent.h; sourceTree = "<group>"; };
 		074B15E41C7D99D400F51301 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 				B5B014A01C83E64900512CD1 /* LoopPage.swift */,
 				B5B014A21C83E76900512CD1 /* LineSpacingLabel.swift */,
 				B5B014A41C8418EC00512CD1 /* Categroys.swift */,
+				01F361751C844E1C0031EF50 /* SliderButtonView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -214,6 +217,7 @@
 				B5B014A31C83E76A00512CD1 /* LineSpacingLabel.swift in Sources */,
 				B5B014A11C83E64900512CD1 /* LoopPage.swift in Sources */,
 				B5B014A51C8418EC00512CD1 /* Categroys.swift in Sources */,
+				01F361761C844E1C0031EF50 /* SliderButtonView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

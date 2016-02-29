@@ -9,7 +9,7 @@
 import UIKit
 import STUIComponent
 
-class ViewController: UIViewController {
+class ViewController: UIViewController ,SliderButtonViewDelegate{
 
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var testLabel: LineSpacingLabel!
@@ -25,6 +25,7 @@ class ViewController: UIViewController {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         setupBasic()
+        setupSlider()
     }
     // MARK: - 初始化
     func setupBasic() {
@@ -50,5 +51,16 @@ class ViewController: UIViewController {
         })
         return page
     }()
+
+    
+    func setupSlider() {
+        let slider:SliderButtonView = SliderButtonView(titleArray: ["111", "222"], width: 320)
+        slider.setup()
+        slider.delegate = self
+        self.view.addSubview(slider)
+    }
+    func sliderButtonView(slider: SliderButtonView, index: NSInteger) {
+        print("\(index)")
+    }
 }
 
