@@ -5,7 +5,7 @@ Foundation project for quick develop
 
 - LoopPage
 - LineSpacingLabel
-- test3
+- SliderButtonView
 
 
 ## Component Usage（用法）
