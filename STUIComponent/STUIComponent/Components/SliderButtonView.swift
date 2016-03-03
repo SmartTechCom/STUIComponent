@@ -94,7 +94,7 @@ public class SliderButtonView: UIView, UIScrollViewDelegate {
     
     func selectAtIndex(index:NSInteger) {
         self.currentIndex = index;
-        for var subView:UIView in self.scrollView!.subviews {
+        for subView:UIView in self.scrollView!.subviews {
             if subView.isKindOfClass(UIButton.classForCoder()) {
                 let btn:UIButton = subView as! UIButton
                 btn.selected = false
