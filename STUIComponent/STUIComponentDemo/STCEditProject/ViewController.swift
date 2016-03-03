@@ -55,7 +55,6 @@ class ViewController: UIViewController ,SliderButtonViewDelegate{
     
     func setupSlider() {
         let slider:SliderButtonView = SliderButtonView(titleArray: ["111", "222"], width: 320)
-        slider.setup()
         slider.delegate = self
         self.view.addSubview(slider)
     }
