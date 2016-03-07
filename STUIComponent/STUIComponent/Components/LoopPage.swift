@@ -153,7 +153,6 @@ public class LoopPage: UIView {
     @objc private func timerStart() {
         let num = index
         collectionView?.scrollToItemAtIndexPath(NSIndexPath(forItem: num, inSection: 0), atScrollPosition: UICollectionViewScrollPosition.Left, animated: true)
-        print(num)
     }
     
     //KARK: - Lazy
