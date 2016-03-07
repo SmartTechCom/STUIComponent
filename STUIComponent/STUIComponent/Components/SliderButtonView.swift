@@ -90,7 +90,7 @@ public class SliderButtonView: UIView, UIScrollViewDelegate {
         self.selectAtIndex(0);
     }
     
-    func selectAtIndex(index:NSInteger) {
+    public func selectAtIndex(index:NSInteger) {
         self.currentIndex = index;
         for subView:UIView in self.scrollView!.subviews {
             if subView.isKindOfClass(UIButton.classForCoder()) {
