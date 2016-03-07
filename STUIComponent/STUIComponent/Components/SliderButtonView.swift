@@ -50,8 +50,6 @@ public class SliderButtonView: UIView, UIScrollViewDelegate {
         let buttonW = width/titleArray.count
         let buttonH = 45
         
-        print(width)
-        
         let count:NSInteger = titleArray.count
         
         
