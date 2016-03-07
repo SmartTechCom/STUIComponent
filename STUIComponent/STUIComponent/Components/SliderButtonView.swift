@@ -36,10 +36,10 @@ public class SliderButtonView: UIView, UIScrollViewDelegate {
         super.init(frame:CGRect(x: 0, y: 0, width: width, height: 50))
         self.titleArray = titleArray;
         self.width = width;
-        
+        self.setup()
     }
     
-     public func setup() {
+     func setup() {
         self.backgroundColor = UIColor.whiteColor()
         self.scrollView = UIScrollView.init(frame: CGRectMake(0, 0, CGFloat(self.width), 50))
         self.scrollView!.showsHorizontalScrollIndicator=false //不显示横向滚动条
@@ -49,8 +49,6 @@ public class SliderButtonView: UIView, UIScrollViewDelegate {
         
         let buttonW = width/titleArray.count
         let buttonH = 45
-        
-        print(width)
         
         let count:NSInteger = titleArray.count
         
@@ -92,9 +90,9 @@ public class SliderButtonView: UIView, UIScrollViewDelegate {
         self.selectAtIndex(0);
     }
     
-    func selectAtIndex(index:NSInteger) {
+    public func selectAtIndex(index:NSInteger) {
         self.currentIndex = index;
-        for var subView:UIView in self.scrollView!.subviews {
+        for subView:UIView in self.scrollView!.subviews {
             if subView.isKindOfClass(UIButton.classForCoder()) {
                 let btn:UIButton = subView as! UIButton
                 btn.selected = false

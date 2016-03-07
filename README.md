@@ -68,7 +68,6 @@ From:Azen.Xu
 3. 使用代码举例：
 ```Swift
       let slider:SliderButtonView = SliderButtonView(titleArray: ["111", "222"], width: 320)
-      slider.setup()
       slider.delegate = self
       self.view.addSubview(slider)
     
