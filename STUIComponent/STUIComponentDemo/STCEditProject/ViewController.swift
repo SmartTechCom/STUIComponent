@@ -57,6 +57,8 @@ class ViewController: UIViewController ,SliderButtonViewDelegate{
         let slider:SliderButtonView = SliderButtonView(titleArray: ["111", "222"], width: 320)
         slider.delegate = self
         self.view.addSubview(slider)
+        
+        slider.changeSliderViewBack(0)
     }
     func sliderButtonView(slider: SliderButtonView, index: NSInteger) {
         print("\(index)")

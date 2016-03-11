@@ -75,7 +75,8 @@ public class SliderButtonView: UIView, UIScrollViewDelegate {
             self.scrollView!.addSubview(btn)
         }
         
-        let backlabel:UILabel = UILabel(frame: CGRect(x: 0, y: 44, width: width, height: 1));        backlabel.backgroundColor = UIColor.init(colorLiteralRed: 0.95, green: 0.95, blue: 0.95, alpha: 1)
+        let backlabel:UILabel = UILabel(frame: CGRect(x: 0, y: 44, width: width, height: 1));
+        backlabel.backgroundColor = UIColor.init(colorLiteralRed: 0.95, green: 0.95, blue: 0.95, alpha: 1)
         self.addSubview(backlabel);
         
         self.imageView = UIImageView(frame: CGRect(x: 15, y: buttonH-2, width: buttonW, height: 2));
@@ -88,6 +89,23 @@ public class SliderButtonView: UIView, UIScrollViewDelegate {
         self.frame = self.scrollView!.bounds
         self.addSubview(self.scrollView!)
         self.selectAtIndex(0);
+    }
+    
+    public func changeSliderViewBack(backAlpha:CGFloat) {
+        self.imageView?.alpha = backAlpha
+        for subView:UIView in self.scrollView!.subviews {
+            if subView.isKindOfClass(UIButton.classForCoder()) {
+                let btn:UIButton = subView as! UIButton
+                if backAlpha > 0.5 {
+                    btn.setTitleColor(UIColor.init(colorLiteralRed: 0.25, green: 0.25, blue: 0.25, alpha: 1.00), forState: UIControlState.Normal)
+                    btn.setTitleColor(UIColor.redColor(), forState: UIControlState.Selected)
+                } else {
+                    btn.setTitleColor(UIColor.init(red: 0.6, green: 0.6, blue: 0.6, alpha: backAlpha), forState: UIControlState.Normal)
+                    btn.setTitleColor(UIColor.init(white: 1, alpha: backAlpha), forState: UIControlState.Selected)
+                }
+                
+            }
+        }
     }
     
     public func selectAtIndex(index:NSInteger) {
