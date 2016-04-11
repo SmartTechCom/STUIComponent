@@ -81,7 +81,7 @@ public class SliderButtonView: UIView, UIScrollViewDelegate {
         
         self.imageView = UIImageView(frame: CGRect(x: 15, y: buttonH-2, width: buttonW, height: 2));
         
-        self.imageView!.backgroundColor = UIColor.redColor()
+        self.imageView!.backgroundColor = UIColor.orangeColor()
         self.scrollView!.addSubview(self.imageView!)
         
         self.count = titleArray.count
@@ -98,7 +98,7 @@ public class SliderButtonView: UIView, UIScrollViewDelegate {
                 let btn:UIButton = subView as! UIButton
                 if backAlpha > 0.5 {
                     btn.setTitleColor(UIColor.init(colorLiteralRed: 0.25, green: 0.25, blue: 0.25, alpha: 1.00), forState: UIControlState.Normal)
-                    btn.setTitleColor(UIColor.redColor(), forState: UIControlState.Selected)
+                    btn.setTitleColor(UIColor.orangeColor(), forState: UIControlState.Selected)
                 } else {
                     btn.setTitleColor(UIColor.init(red: 0.6, green: 0.6, blue: 0.6, alpha: backAlpha), forState: UIControlState.Normal)
                     btn.setTitleColor(UIColor.init(white: 1, alpha: backAlpha), forState: UIControlState.Selected)
