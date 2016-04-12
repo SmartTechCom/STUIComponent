@@ -14,7 +14,8 @@ public protocol SliderButtonViewDelegate {
 
 public class SliderButtonView: UIView, UIScrollViewDelegate {
     public var delegate:SliderButtonViewDelegate?
-    var titleColor:UIColor?
+    var mySeletColor:UIColor?
+    var myUnSeletColor:UIColor?
     var scrollView:UIScrollView?
     var count:NSInteger = 0
     var currentIndex:NSInteger = 0
@@ -32,10 +33,12 @@ public class SliderButtonView: UIView, UIScrollViewDelegate {
         fatalError("init(coder:) has not been implemented")
     }
 
-    public init(titleArray:NSMutableArray, width:NSInteger){
+    public init(titleArray:NSMutableArray, width:NSInteger, slectColor:UIColor, unSelectColor:UIColor){
         super.init(frame:CGRect(x: 0, y: 0, width: width, height: 50))
         self.titleArray = titleArray;
         self.width = width;
+        self.mySeletColor = slectColor
+        self.myUnSeletColor = unSelectColor
         self.setup()
     }
     
@@ -61,8 +64,8 @@ public class SliderButtonView: UIView, UIScrollViewDelegate {
             btn.tag = 100+i
             btn.setTitle(titleArray[i] as? String, forState: UIControlState.Normal)
             btn.titleLabel!.font = UIFont.systemFontOfSize(16)
-            btn.setTitleColor(UIColor.init(colorLiteralRed: 0.25, green: 0.25, blue: 0.25, alpha: 1.00), forState: UIControlState.Normal)
-            btn.setTitleColor(UIColor.redColor(), forState: UIControlState.Selected)
+            btn.setTitleColor(myUnSeletColor, forState: UIControlState.Normal)
+            btn.setTitleColor(mySeletColor, forState: UIControlState.Selected)
             
             btn.titleLabel!.font = UIFont.systemFontOfSize(16)
             if 320 == self.width {
@@ -81,7 +84,7 @@ public class SliderButtonView: UIView, UIScrollViewDelegate {
         
         self.imageView = UIImageView(frame: CGRect(x: 15, y: buttonH-2, width: buttonW, height: 2));
         
-        self.imageView!.backgroundColor = UIColor.orangeColor()
+        self.imageView!.backgroundColor = mySeletColor
         self.scrollView!.addSubview(self.imageView!)
         
         self.count = titleArray.count
